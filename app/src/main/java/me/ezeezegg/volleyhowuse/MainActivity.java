@@ -1,13 +1,14 @@
 package me.ezeezegg.volleyhowuse;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 import me.ezeezegg.volleyhowuse.controllers.AppController;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
     // json object response url
     private String urlJsonObj = "http://api.androidhive.info/volley/person_object.json";
@@ -42,10 +43,17 @@ public class MainActivity extends Activity {
     // temporary string to show the parsed response
     private String jsonResponse;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+
+        setSupportActionBar(toolbar);                    // Setting toolbar as the ActionBar with setSupportActionBar() call
+
+
 
         btnMakeObjectRequest = (Button) findViewById(R.id.btnObjRequest);
         btnMakeArrayRequest = (Button) findViewById(R.id.btnArrayRequest);
