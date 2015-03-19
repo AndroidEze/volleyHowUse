@@ -79,8 +79,9 @@ public class MainActivity extends Activity {
      * Method to make json object request where json response starts wtih {
      * */
     private void makeJsonObjectRequest() {
-        /*showpDialog();
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, urlJsonObj, null,
+        showpDialog();
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, urlJsonObj,(String) null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -110,7 +111,6 @@ public class MainActivity extends Activity {
                     }
 
                 }, new Response.ErrorListener() {
-
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
@@ -118,9 +118,8 @@ public class MainActivity extends Activity {
                 // hide the progress dialog
                 hidepDialog();
             }
-
-        });
-        AppController.getInstance().addToRequestQueue(jsonObjReq);*/
+            });
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
     /**
